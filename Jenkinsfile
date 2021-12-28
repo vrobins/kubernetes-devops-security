@@ -91,11 +91,11 @@ pipeline {
       steps {
         script {
           try {
-            withKubeConfig([credentialsId: 'kubeconfig']) {
+            withKubeConfig([credentialsId: '90b05547-147e-4181-ba0b-b7a287c7fd37']) {
               sh "bash integration-test.sh"
             }
           } catch (e) {
-            withKubeConfig([credentialsId: 'kubeconfig']) {
+            withKubeConfig([credentialsId: '90b05547-147e-4181-ba0b-b7a287c7fd37']) {
               sh "kubectl -n default rollout undo deploy ${deploymentName}"
             }
             throw e
