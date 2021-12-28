@@ -102,6 +102,13 @@ pipeline {
           }
         }
       }
+    }
+    stage('OWASP ZAP - DAST') {
+      steps {
+        withKubeConfig([credentialsId: '90b05547-147e-4181-ba0b-b7a287c7fd37']) {
+          sh 'bash zap.sh'
+        }
+      }
     }	
 
 //	    stage('Kubernetes Deployment - DEV') {
