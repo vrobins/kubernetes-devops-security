@@ -87,7 +87,7 @@ pipeline {
         )
       }
     }
-    stage('Integration Tests - DEV') {
+/*    stage('Integration Tests - DEV') {
       steps {
         script {
           try {
@@ -109,7 +109,7 @@ pipeline {
           sh 'bash zap.sh'
         }
       }
-    }	
+    }	*/
 
 //	    stage('Kubernetes Deployment - DEV') {
 //      steps {
