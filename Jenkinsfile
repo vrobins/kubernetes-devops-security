@@ -123,13 +123,13 @@ pipeline {
       steps {
         parallel(
           "Deployment": {
-            withKubeConfig([credentialsId: 'kubeconfig']) {
+            withKubeConfig([credentialsId: '90b05547-147e-4181-ba0b-b7a287c7fd37']) {
               sh "sed -i 's#replace#${imageName}#g' k8s_PROD-deployment_service.yaml"
               sh "kubectl -n prod apply -f k8s_PROD-deployment_service.yaml"
             }
           },
           "Rollout Status": {
-            withKubeConfig([credentialsId: 'kubeconfig']) {
+            withKubeConfig([credentialsId: '90b05547-147e-4181-ba0b-b7a287c7fd37']) {
               sh "bash k8s-PROD-deployment-rollout-status.sh"
             }
           }
